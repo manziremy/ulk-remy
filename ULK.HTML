@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    header{
+        background-color: #092b44;
+        color: rgb(248, 243, 243);
+        /* padding: 60px; */
+    }
+    .nav {
+        text-align: center;
+        margin-top: 0;
+        color: #fff;
+        
+    }
+    .nav a{
+        text-decoration: none;
+        margin-left: 30px;
+        color: white;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .cont a{
+        text-decoration: none;
+        color: gray;
+        margin-left: 50px;
+        text-align: left;
+    }
+    .header{
+        padding: 30px;
+    }
+    .nav a:hover{
+        color: rgb(248, 243, 243);
+        border-bottom: 2px solid white;
+    }
+    .dropdown{
+        display: inline-block;
+        position: relative;
+    }
+.dropbtn{
+    cursor: pointer;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    min-width: 260px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    background-color: white;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover{
+    background-color: #2a9dd6;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+ /* Slideshow container */
+.slideshow-container {
+
+  position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+} 
+.mySlides img{
+    width: 700px;
+    height: 380px;
+    
+}
+.content h1{
+  margin-top: 50px;
+  margin-left: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+.widget-title {
+  color: #666;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0 0 10px 0;
+  margin-bottom: 10px; }
+  #sidebar-header .widget-title {
+    display: none;
+    /* Do not display titles for header widgets */ }
+    
+    .content p{
+       color: #666;
+        margin-left: 450px;
+        margin-top: -380px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+    }
+    .text{
+        margin-left: 0px;
+        margin-top: 400px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #333;
+    }
+    .down{
+      margin-left: 500px;
+      font-size: 20px;
+      color: black;
+    }
+    .down button{
+      background: white; 
+      color: #333;
+      border: 1px solid #2a9dd6;
+      padding: 20px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: all 0.5s;
+    }
+    .down button:hover{
+      transition: all 0.5s;
+      background: #2a9dd6;
+      color: white;
+    }
+    .divider{
+      margin-left: 689px;
+      background-color: #2a9dd6;
+ 
+      
+
+    }
+    body {
+  background-color: #f9f9f9; /* Matches the light grey background in the image */
+  padding: 50px;
+  font-family: sans-serif;
+}
+
+.news-header {
+  margin-top: 100px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Creating the horizontal lines */
+.news-header::before,
+.news-header::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dcdcdc; /* Light grey line color */
+}
+
+.news-label {
+  background-color: #31a2d9; /* The specific blue from your image */
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 3px; /* Mimics the wide kerning in the image */
+  text-transform: uppercase;
+}
+
+:root {
+  --text-color: #444;
+  --title-color: #333;
+  --border-color: #eeeeee;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.news-card {
+  margin-top: 100px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative; /* needed for overlay */
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-media {
+  position: relative; /* confine overlay to image area */
+  cursor: pointer;
+}
+
+.card-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Keeps image proportions while filling the area */
+  display: block;
+  transition: opacity 0.32s ease;
+}
+
+/* Overlay that appears on hover (only over the image) */
+.card-overlay {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.24s ease;
+  pointer-events: none;
+}
+
+/* Show overlay and fade image only when hovering the image area or focusing links inside */
+.card-media:hover .card-overlay,
+.card-media:focus-within .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Apply opacity to image only */
+.card-media:hover img,
+.card-media:focus-within img {
+  opacity: 0.35;
+}
+
+.overlay-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.overlay-links {
+  display: flex;
+  gap: 12px;
+}
+
+.overlay-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid #fff; /* white border as requested */
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: background-color 0.18s, color 0.18s;
+}
+
+.overlay-links a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.card-content {
+  padding: 20px 25px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--title-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+  /* Limit title to 3 lines for uniformity */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 15px 0;
+}
+
+.card-excerpt {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+:root {
+  --primary-green: #00a679; /* The green from your "Read More" button */
+  --text-grey: #666;
+  --title-dark: #444;
+  --light-border: #eeeeee;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fcfcfc;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+/* Grid Layout */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+}
+
+/* Card Styling */
+.news-card {
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px 25px;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: var(--title-dark);
+  line-height: 1.4;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--light-border);
+  margin: 15px 0;
+}
+
+.card-excerpt {
+  color: var(--text-grey);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Footer (Dots and Button) */
+.news-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #d1d1d1;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.active {
+  background-color: #8fa39a; /* Darker dot for active state */
+}
+
+.btn-read-more {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background-color: #008f68;
+}
+.governing-section {
+  width: 100%;
+  padding: 60px 0; /* Creates the generous white space seen in the image */
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.governing-title {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem; /* Large, prominent heading size */
+  color: #4a4a4a;    /* The specific dark grey shade from the image */
+  font-weight: 500;  /* Not too bold, maintaining a modern look */
+  margin: 0;
+  letter-spacing: -0.5px; /* Slight tightening for a professional finish */
+}
+:root {
+  --text-dark: #333333;
+  --text-muted: #666666;
+  --bg-light: #f9f9f9;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 50px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #4a4a4a;
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background: white;
+  text-align: center;
+  /* Matches the subtle lift and shadow in the image */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover; /* Ensures portraits fill the space correctly */
+  display: block;
+}
+
+.profile-info {
+  padding: 25px 20px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.designation, .role {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+</style>
+    
+</head>
+<body>
+    <Header>
+        <div class="cont">
+            <a href="#">📞+250788304086 or +250788308792</a>
+            <a href="#">✉️info@ulk.ac.rw</a>
+        </div>
+
+    <div class="header">
+        <img src="ULK.png" alt="" style="margin-left: 30px;">
+
+    <div class="nav">
+            <a href="#">HOME</a>
+
+            <div class="dropdown">
+            <a href="#">About us</a>
+                <div class="dropbtn">
+                    <div class="dropdown-content">
+<a href="#">Office Of Founder And President</a>
+<a href="#">Vice President</a>
+<a href="#">vision,mission and<br>philosophy</a>
+<a href="#">Governance</a>
+<a href="#">students' best <br>experiance</a>
+<a href="#">photo Gallery</a>
+<a href="#">policies</a>
+            </div>
+            </div>
+</div>
+
+ <div class="dropdown">
+             <a href="#">Academics</a>
+                <div class="dropbtn">
+                    <div class="dropdown-content">
+<a href="#">Research Publication &<br>Cooperation</a>
+<a href="#">ULK Poletechnic<br>Institute</a>
+<a href="#">masters <br>programmes</a>
+<a href="#">undergraduates <br>programmes</a>
+<a href="#">short courses</a>
+<a href="#">libraries</a>
+<a href="#">examination <br>results</a>
+<a href="#">graduation <br>statics</a>
+<a href="#">Academic calendar</a>
+            </div>
+            </div>
+</div>
+
+<div class="dropdown">
+             <a href="#">Admissions</a>
+                <div class="dropbtn">
+                    <div class="dropdown-content">
+<a href="#">admission<br>requerement</a>
+<a href="#">fees structure</a>
+<a href="#">department</a>
+<a href="#">online application</a>
+<a href="#">international <br>student</a>
+            </div>
+            </div>
+</div>
+
+<div class="dropdown">
+              <a href="#">Cumpus</a>
+                <div class="dropbtn">
+                    <div class="dropdown-content">
+<a href="#">Galleries</a>
+<a href="#">News & Events</a>
+<a href="#">Student <br> Regulation</a>
+<a href="#">on cumpus life</a>
+<a href="#">sports</a>
+            </div>
+            </div>
+</div>
+           
+<div class="dropdown">
+              <a href="#">Online Application</a>
+                <div class="dropbtn">
+                    <div class="dropdown-content">
+<a href="#">Online Registration</a>
+<a href="#">Online Learning</a>
+
+
+            </div>
+            </div>
+</div>
+            
+            <a href="#">contact us</a>
+            <a href="#">Announcements</a>
+            </div>
+    </div>
+            </div>    
+    </Header>
+   
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 1.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 2.jpg" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 3.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 4.png" style="width:100%">
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 5.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 6.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 7.jpg" style="width:100%">
+</div> 
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="image 8.jpg" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<div class="content">
+<h1>Welcome at Kigali Independent University</h1>
+
+<div class="picture">
+<img src="DR RWIGAMBA.png" alt="DR RWIGAMBA" width="300px" style="margin-left: 100px; margin-top: 20px;">
+<br>
+<h3 class="widget-title" style="margin-left:105px;">Prof Dr RWIGAMBA<br>Balinda</h3>
+</div>
+<p>NOTE OF THE FOUNDER AND PRESIDENT OF ULK</p>
+<div class="text">
+<p>I welcome you all to Kigali Independent University ULK, the university whose inception goes back to 1996. I decided to open this university when I realized that Rwandans and the world at large needed a place that provided an extraordinary education. To this end, I began to put the necessities in place to erect one of the best higher learning institutions in the nation. <br>
+<br>
+Like any other forward-looking entrepreneur, I pursued this goal with a strong vision in mind. By design, ULK is a university in the heart of Africa that is committed to educational excellence, it attracts highly motivated students and highly qualified personnel who are endowed with strong ethical values that will enable them to lead and catalyze the nation’s <br> development.</p>
+</div>
+</div>
+
+<div class="down">
+
+<button> READ MORE</button>
+</div>
+
+<div class="news-header">
+  <span class="news-label">LATEST NEWS</span>
+</div>
+
+<div class="news-grid">
+  <article class="news-card">
+    <div class="card-media">
+      <img src="inyarwanda.jpeg" alt="Cultural Day">
+      <div class="card-overlay" aria-hidden="true">
+        <h3 class="overlay-title">ULK & ULK Polytechnic Celebrate<br>Culture,Diversity and Unity in vibrant Cultural Day</h3>
+        <div class="overlay-links">
+          <a href="#" class="overlay-link">Expand</a>
+          <a href="#" class="overlay-link">Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">ULK & ULK Polytechnic Celebrate Culture, Diversity and Unity in a Vibrant Cultural Day</h2>
+      <hr class="divider">
+      <p class="card-excerpt">Kigali Independent University (ULK) along with ULK Polytechnic Institute, successfully hosted a colorful...</p>
+    </div>
+  </article>
+
+  <article class="news-card">
+    <div class="card-media">
+      <img src="leaders.jpg" alt="National Dialogue">
+      <div class="card-overlay" aria-hidden="true">
+        <h3 class="overlay-title">Intergenerational Dialogue</h3>
+        <div class="overlay-links">
+          <a href="#" class="overlay-link">Expand</a>
+          <a href="#" class="overlay-link">Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">ULK Represented at National Intergenerational Dialogue on Stable Families and Youth Leadership</h2>
+      <hr class="divider">
+      <p class="card-excerpt">On 30 December 2025, Kigali Independent University (ULK) was represented at a high-level...</p>
+    </div>
+  </article>
+
+  <article class="news-card">
+    <div class="card-media">
+      <img src="graduate.jpg" alt="Graduation Ceremony">
+      <div class="card-overlay" aria-hidden="true">
+        <h3 class="overlay-title">Graduation Highlights</h3>
+        <div class="overlay-links">
+          <a href="#" class="overlay-link">Expand</a>
+          <a href="#" class="overlay-link">Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">ULK and ULK Polytechnic Celebrate Excellence at the 22nd and 9th Graduation Ceremony</h2>
+      <hr class="divider">
+      <p class="card-excerpt">On Friday December 12, 2025 Kigali Independent University ULK and ULK Polytechnic Institute (UPI) proudly...</p>
+    </div>
+  </article>
+</div>
+      </div>
+    </article>
+  </div>
+  <div class="news-footer">
+    <div class="pagination-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <button class="btn-read-more">READ MORE NEWS</button>
+  </div>
+</section>
+<section class="governing-section">
+  <h2 class="governing-title">Governing Body</h2>
+</section>
+
+  
+  <div class="profile-grid">
+    <article class="profile-card">
+      <div class="image-wrapper">
+        <img src="MRS MARIE.png" alt="Mrs. NYIRASHYIRAMBERE Marie Louise">
+      </div>
+      <div class="profile-info">
+        <h3 class="name">Mrs. NYIRASHYIRAMBERE Marie Louise</h3>
+        <p class="role">Deputy President of ULK and Deputy Vice-Chancellor Administration and finance</p>
+      </div>
+    </article>
+
+    <article class="profile-card">
+      <div class="image-wrapper">
+        <img src="karangwa.jpg" alt="Prof. Dr. KARANGWA Chrysologue">
+      </div>
+      <div class="profile-info">
+        <h3 class="name">Prof. Dr. KARANGWA Chrysologue</h3>
+        <p class="designation">Chairman of the Governing Body</p>
+      </div>
+    </article>
+
+    <article class="profile-card">
+      <div class="image-wrapper">
+        <img src="Jean bosco.jpg" alt="Prof. Dr. HARELIMANA Jean Bosco">
+      </div>
+      <div class="profile-info">
+        <h3 class="name">Prof. Dr. HARELIMANA Jean Bosco</h3>
+        <p class="designation">Vice-Chairman of the Governing Body</p>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="governing-section">
+  <h2 class="governing-title">Vice-Chancellor</h2>
+</section>
+<main class="page-container">
+
+  <div class="header-divider">
+    <div class="blue-box">LATEST NEWS</div>
+  </div>
+
+  <section class="news-grid">
+    <article class="card">
+      <img src="culture.jpg" alt="Cultural Day">
+      <div class="card-content">
+        <h3>ULK & ULK Polytechnic Celebrate Culture, Diversity and Unity in a Vibrant Cultural Day</h3>
+        <hr>
+        <p>Kigali Independent University (ULK) along with ULK Polytechnic Institute, successfully hosted a colorful...</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="dialogue.jpg" alt="National Dialogue">
+      <div class="card-content">
+        <h3>ULK Represented at National Intergenerational Dialogue on Stable Families and Youth Leadership</h3>
+        <hr>
+        <p>On 30 December 2025, Kigali Independent University (ULK) was represented at a high-level...</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="graduation.jpg" alt="Graduation">
+      <div class="card-content">
+        <h3>ULK and ULK Polytechnic Celebrate Excellence at the 22nd and 9th Graduation Ceremony</h3>
+        <hr>
+        <p>On Friday December 12, 2025 Kigali Independent University ULK and ULK Polytechnic Institute (UPI) proudly...</p>
+      </div>
+    </article>
+  </section>
+
+  <div class="actions">
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <button class="btn-green">READ MORE NEWS</button>
+  </div>
+
+  <h2 class="title-heading">Governing Body</h2>
+  <section class="profile-grid">
+    <div class="profile-card">
+      <img src="marie.jpg" alt="Mrs. Marie Louise">
+      <div class="profile-text">
+        <h4>Mrs. NYIRASHYIRAMBERE Marie Louise</h4>
+        <p>Deputy President of ULK and Deputy Vice-Chancellor Administration and finance</p>
+      </div>
+    </div>
+    <div class="profile-card">
+      <img src="karangwa.jpg" alt="Prof. Dr. Chrysologue">
+      <div class="profile-text">
+        <h4>Prof. Dr. KARANGWA Chrysologue</h4>
+        <p>Chairman of the Governing Body</p>
+      </div>
+    </div>
+    <div class="profile-card">
+      <img src="harelimana.jpg" alt="Prof. Dr. Jean Bosco">
+      <div class="profile-text">
+        <h4>Prof. Dr. HARELIMANA Jean Bosco</h4>
+        <p>Vice-Chairman of the Governing Body</p>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="title-heading">Vice Chancellor</h2>
+  <section class="vc-container">
+    <div class="profile-card">
+      <img src="vc.jpg" alt="Prof. Dr. ONUORAH">
+      <div class="profile-text">
+        <h4>Prof. Dr ONUORAH, Martins Onyekwelu</h4>
+        <p>Ag. Vice-Chancellor of ULK</p>
+        <p class="email">vc@ulk.ac.rw</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+ </html>
